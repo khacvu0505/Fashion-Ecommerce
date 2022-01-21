@@ -75,8 +75,6 @@ exports.GetMonthly = async (req, res, next) => {
       },
     ]);
     res.status(200).send(income);
-
-    res.status(200).send(income);
   } catch (error) {
     res.status(500).send(error);
   }
