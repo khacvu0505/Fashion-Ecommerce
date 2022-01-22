@@ -5,11 +5,13 @@ import Product from "./page/Product";
 import Register from "./page/Register";
 import Login from "./page/Login";
 import Cart from "./page/Cart";
+import Success from "./page/Success";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <div>
       <BrowserRouter>
@@ -27,6 +29,7 @@ const App = () => {
             path="/register"
             element={user ? <Navigate to="/" /> : <Register />}
           />
+          <Route exact path="/success" element={<Success />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
